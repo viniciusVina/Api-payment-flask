@@ -19,5 +19,7 @@ class Pix:
         #salva a imagem
         img.save(f"static/img/qr_code_{bank_payment_id}.png")  # type: ignore
 
-        return {"bank_payment_id":bank_payment_id,"qr_code_path":f"qr_code_path{bank_payment_id}"}
-        
+        return {
+            "bank_payment_id": bank_payment_id,
+            "qr_code_path": f"qr_code_{bank_payment_id}"  # sem extensão
+        }
