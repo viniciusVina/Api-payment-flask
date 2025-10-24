@@ -1,4 +1,4 @@
-from flask import Flask,jsonify,request,send_file
+from flask import Flask,jsonify,request,send_file,render_template
 from repository.database import db
 from db_models.payment import Payment
 from datetime import datetime, timedelta
@@ -47,23 +47,13 @@ def get_image(file_name):
     return send_file(f"static/img/{file_name}.png",mimetype='image/png')
 
 
-
-
 @app.route('/payments/pix/confirmation',methods=['POST'])
 def pix_confirmation():
     return jsonify({"message":"The payment has been corfirmed"})
 
-
-
-
-
-
-
-
-
 @app.route('/payments/pix/<int:payment_id>',methods=['GET'])
 def payment_px_page(payment_id):
-    return 'pagamento pix'
+    return render_template('payment.html')
 
 
 
